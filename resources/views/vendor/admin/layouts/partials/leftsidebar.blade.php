@@ -22,15 +22,19 @@
 						<span class="micon dw dw-house-1"></span><span class="mtext">User</span>
 					</a>
 					<ul class="submenu">
-						<li><a href="{{Route('admin.user')}}">Data Pegawai</a></li>
+						<li><a href="{{Route('admin.pegawai')}}">Data Pegawai</a></li>
 						<li><a href="{{Route('admin.atasan')}}">Data Atasan</a></li>
 						<li><a href="{{Route('admin.supir')}}">Data Supir</a></li>
 					</ul>
 				</li>
-				<li>
-					<a href="#" class="dropdown-toggle no-arrow">
-						<span class="micon dw dw-invoice"></span><span class="mtext">Mobil</span>
+				<li class="dropdown">
+					<a href="javascript:;" class="dropdown-toggle">
+						<span class="micon dw dw-house-1"></span><span class="mtext">Mobil</span>
 					</a>
+					<ul class="submenu">
+						
+						<li><a href="{{Route('admin.unit')}}">Unit</a></li>
+					</ul>
 				</li>
 			</ul>
 			@endif

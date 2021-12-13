@@ -1,17 +1,17 @@
-<div class="modal fade bs-example-modal-lg" id="updateSupirModal{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bs-example-modal-lg" id="updateUnitModal{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <form method="POST" action="{{Route('admin.updateSupir',$data->id)}}">
+            <form method="POST" action="{{Route('admin.updateUnit',$data->id)}}">
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myLargeModalLabel">Update Supir</h4>
+                    <h4 class="modal-title" id="myLargeModalLabel">Update Unit</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Nama</label>
-                        <input name="nama" value="{{$data->nama}}" class="form-control" type="text" placeholder="Nama">
+                        <label>Nama ULP</label>
+                        <input name="nama" value="{{$data->nama}}" class="form-control" type="text" placeholder="Nama ULP">
                         @error('nama') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
