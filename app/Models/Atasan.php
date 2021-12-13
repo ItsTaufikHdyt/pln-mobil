@@ -10,5 +10,6 @@ class Atasan extends Model
     use HasFactory;
 
     protected $table = 'atasan';
+    
     protected $guarded = [];
 }

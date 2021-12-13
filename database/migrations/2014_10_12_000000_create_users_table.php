@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('bagian');
             $table->string('password');
             $table->integer('role_id');
+            $table->integer('atasan_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

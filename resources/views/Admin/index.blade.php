@@ -9,7 +9,7 @@ Dashboard
 Dashboard
 @endsection
 @section('item-active')
-
+Home
 @endsection
 @section('content')
 Halaman Admin
