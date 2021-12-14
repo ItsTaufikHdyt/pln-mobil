@@ -17,6 +17,8 @@ class CreateMobil extends Migration
             $table->id();
             $table->string('nopol')->unique();
             $table->integer('jenis_mobil');
+            $table->integer('unit_id');
+            $table->integer('status');
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="title">
-                                <h4>Title</h4>
+                                <h4>@yield('title-content')</h4>
                             </div>
                             @include('admin::layouts.partials.breadcrumb')
                         </div>

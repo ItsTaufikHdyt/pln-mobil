@@ -25,6 +25,7 @@ class CreatePeminjamanTable extends Migration
             $table->string('jenis_kendaraan');
             $table->string('tujuan');
             $table->string('keperluan');
+            $table->integer('status');
             $table->timestamps();
         });
     }

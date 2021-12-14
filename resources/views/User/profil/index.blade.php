@@ -3,16 +3,15 @@
 Admin
 @endsection
 @section('title-content')
-Data Pegawai
+Profil
 @endsection
 @section('item')
 User
 @endsection
 @section('item-active')
-Data Pegawai
+Profil
 @endsection
 @section('content')
-<button data-toggle="modal" data-target="#createPegawaiModal" type="button" class="btn btn-success">Create</button>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -43,10 +42,8 @@ Data Pegawai
                 @endif
             </th>
             <th scope="row">
-                <button data-toggle="modal" data-target="#updatePegawaiModal{{$data->id}}" type="button" class="btn btn-warning">Edit</button>
-                @include('Admin.user.update')
-                <button data-toggle="modal" data-target="#confirmationModal{{$data->id}}" type="button" class="btn btn-danger">Delete</button>
-                @include('Admin.user.delete-confirmation')
+                <button data-toggle="modal" data-target="#updateProfilModal{{$data->id}}" type="button" class="btn btn-warning">Edit</button>
+                @include('User.profil.update')
             </th>
         </tr>
         @empty
@@ -54,5 +51,4 @@ Data Pegawai
         @endforelse
     </tbody>
 </table>
-@include('Admin.user.create')
 @endsection

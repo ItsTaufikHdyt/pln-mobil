@@ -7,6 +7,7 @@ use App\Models\Atasan;
 use App\Models\Supir;
 use App\Models\User;
 use App\Models\Unit;
+use App\Models\Mobil;
 class AdminController extends Controller
 {
     public function index()
@@ -158,5 +159,44 @@ class AdminController extends Controller
         $unit->delete();
 
         return redirect()->route('admin.unit');
+    }
+
+    //======================Unit====================
+    public function mobil()
+    {
+        $mobil = Mobil::all();
+        $unit = Unit::all();
+        return view('Admin.mobil.index', compact('mobil','unit'));
+    }
+
+    public function storeMobil(Request $request)
+    {
+        $mobil = Mobil::create([
+            'nopol' => $request->nopol,
+            'jenis_mobil' => $request->jenis_mobil,
+            'unit_id' => $request->unit_id,
+            'status' => 1
+        ]);
+
+        return redirect()->route('admin.mobil');
+    }
+
+    public function updateMobil(Request $request, $id)
+    {
+        $mobil = Mobil::find($id);
+        $mobil->update([
+            'nopol' => $request->nopol,
+            'jenis_mobil' => $request->jenis_mobil,
+            'unit_id' => $request->unit_id,
+        ]);
+        return redirect()->route('admin.mobil');
+    }
+
+    public function destroyMobil($id)
+    {
+        $mobil = Mobil::find($id);
+        $mobil->delete();
+
+        return redirect()->route('admin.mobil');
     }
 }
