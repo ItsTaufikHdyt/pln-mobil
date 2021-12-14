@@ -1,16 +1,16 @@
-<div class="modal fade bs-example-modal-lg" id="createUnitModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bs-example-modal-lg" id="createJenisModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-                <form method="POST" action="{{Route('admin.storeUnit')}}">
+                <form method="POST" action="{{Route('admin.storeJenis')}}">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myLargeModalLabel">Create Unit</h4>
+                    <h4 class="modal-title" id="myLargeModalLabel">Create Jenis</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label>Nama</label>
-                        <input name="nama" class="form-control" type="text" placeholder="Nama">
+                        <label>Jenis Kendaraan</label>
+                        <input name="nama" class="form-control" type="text" placeholder="Jenis Kendaraan">
                         @error('nama') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>

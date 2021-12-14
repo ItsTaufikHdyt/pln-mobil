@@ -13,7 +13,7 @@
 			@if(Auth::user()->role_id == 1)
 			<ul id="accordion-menu">
 				<li>
-					<a href="#" class="dropdown-toggle no-arrow">
+					<a href="{{Route('admin.peminjaman')}}" class="dropdown-toggle no-arrow">
 						<span class="micon dw dw-invoice"></span><span class="mtext">Peminjaman</span>
 					</a>
 				</li>
@@ -33,6 +33,7 @@
 					</a>
 					<ul class="submenu">
 						<li><a href="{{Route('admin.mobil')}}">Data Mobil</a></li>
+						<li><a href="{{Route('admin.jenis')}}">Data Jenis Kendaraan</a></li>
 						<li><a href="{{Route('admin.unit')}}">Data Unit</a></li>
 					</ul>
 				</li>
@@ -41,7 +42,7 @@
 			@if(Auth::user()->role_id == 2)
 			<ul id="accordion-menu">
 				<li>
-					<a href="#" class="dropdown-toggle no-arrow">
+					<a href="{{Route('user.peminjaman')}}" class="dropdown-toggle no-arrow">
 						<span class="micon dw dw-invoice"></span><span class="mtext">Peminjaman</span>
 					</a>
 				</li>

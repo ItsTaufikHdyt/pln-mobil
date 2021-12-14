@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Atasan;
+use App\Models\Jenis_kendaraan;
 use App\Models\Supir;
 use App\Models\User;
 use App\Models\Unit;
 use App\Models\Mobil;
+use App\Models\Peminjaman;
 class AdminController extends Controller
 {
     public function index()
@@ -161,19 +163,53 @@ class AdminController extends Controller
         return redirect()->route('admin.unit');
     }
 
+    //======================Jenis Kendaaraan===================
+    public function Jenis()
+    {
+        $jenis = Jenis_kendaraan::all();
+        return view('Admin.jenis_kendaraan.index', compact('jenis'));
+    }
+
+    public function storeJenis(Request $request)
+    {
+        $jenis = Jenis_kendaraan::create([
+            'nama' => $request->nama,
+        ]);
+
+        return redirect()->route('admin.jenis');
+    }
+
+    public function updateJenis(Request $request, $id)
+    {
+        $jenis = Jenis_kendaraan::find($id);
+        $jenis->update([
+            'nama' => $request->nama
+        ]);
+        return redirect()->route('admin.jenis');
+    }
+
+    public function destroyJenis($id)
+    {
+        $jenis = Jenis_kendaraan::find($id);
+        $jenis->delete();
+
+        return redirect()->route('admin.jenis');
+    }
+
     //======================Unit====================
     public function mobil()
     {
         $mobil = Mobil::all();
+        $jenis = Jenis_kendaraan::all();
         $unit = Unit::all();
-        return view('Admin.mobil.index', compact('mobil','unit'));
+        return view('Admin.mobil.index', compact('mobil','unit','jenis'));
     }
 
     public function storeMobil(Request $request)
     {
         $mobil = Mobil::create([
             'nopol' => $request->nopol,
-            'jenis_mobil' => $request->jenis_mobil,
+            'jenis_id' => $request->jenis_id,
             'unit_id' => $request->unit_id,
             'status' => 1
         ]);
@@ -186,7 +222,7 @@ class AdminController extends Controller
         $mobil = Mobil::find($id);
         $mobil->update([
             'nopol' => $request->nopol,
-            'jenis_mobil' => $request->jenis_mobil,
+            'jenis_id' => $request->jenis_id,
             'unit_id' => $request->unit_id,
         ]);
         return redirect()->route('admin.mobil');
@@ -198,5 +234,36 @@ class AdminController extends Controller
         $mobil->delete();
 
         return redirect()->route('admin.mobil');
+    }
+
+    //======================Peminjaman====================
+    public function peminjaman()
+    {
+        $peminjaman = Peminjaman::all();
+        $jenis = Jenis_kendaraan::all();
+        $mobil = Mobil::all();
+        $supir = Supir::all();
+        return view('Admin.peminjaman.index',compact('peminjaman','jenis','mobil','supir'));
+    }
+
+    public function updatePeminjaman(Request $request,$id)
+    {
+        $peminjaman = Peminjaman::find($id);
+        $peminjaman->update([
+            'status' => $request->status,
+            'mobil_id' => $request->mobil_id,
+            'supir_id' => $request->supir_id,
+            'catatan' => $request->catatan
+        ]);
+
+        return redirect()->route('admin.peminjaman');
+    }
+
+    public function destroyPeminjaman($id)
+    {
+        $peminjaman = Peminjaman::find($id);
+        $peminjaman->delete();
+
+        return redirect()->route('admin.peminjaman');
     }
 }

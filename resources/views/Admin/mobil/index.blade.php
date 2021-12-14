@@ -32,17 +32,7 @@ Data Mobil
             <th scope="row">{{$no++}}</th>
             <th scope="row">{{$data->nopol}}</th>
             <th scope="row">
-                @if ($data->jenis_mobil == 1)
-                <span class="badge badge-secondary">Avanza</span>
-                @elseif ($data->jenis_mobil == 2)
-                <span class="badge badge-secondary">Hilux Single Cabin</span>
-                @elseif ($data->jenis_mobil == 3)
-                <span class="badge badge-secondary">Isuzu NKR 55</span>
-                @elseif ($data->jenis_mobil == 4)
-                <span class="badge badge-secondary">Innova</span>
-                @elseif ($data->jenis_mobil == 5)
-                <span class="badge badge-secondary">Hilux Double Cabin</span>
-                @endif
+            {{$data->jenis_id}}
             </th>
             <th scope="row">
                 {{$data->unit_id}}

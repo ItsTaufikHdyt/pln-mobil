@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMobil extends Migration
+class CreateJeniskendaraan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateMobil extends Migration
      */
     public function up()
     {
-        Schema::create('mobil', function (Blueprint $table) {
+        Schema::create('jenis_kendaraan', function (Blueprint $table) {
             $table->id();
-            $table->string('nopol')->unique();
-            $table->integer('jenis_id');
-            $table->integer('unit_id');
-            $table->integer('status');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateMobil extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mobil');
+        Schema::dropIfExists('jeniskendaraan');
     }
 }

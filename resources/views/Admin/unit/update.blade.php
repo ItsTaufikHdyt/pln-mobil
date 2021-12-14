@@ -10,8 +10,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Nama ULP</label>
-                        <input name="nama" value="{{$data->nama}}" class="form-control" type="text" placeholder="Nama ULP">
+                        <label>Nama</label>
+                        <input name="nama" value="{{$data->nama}}" class="form-control" type="text" placeholder="Nama">
                         @error('nama') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>

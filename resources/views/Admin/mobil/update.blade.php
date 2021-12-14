@@ -9,26 +9,24 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                <div class="form-group">
+                    <div class="form-group">
                         <label>Nomer Polisi</label>
                         <input name="nopol" class="form-control" type="text" value="{{$data->nopol}}" placeholder="Nomer Polisi">
                         @error('nopol') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
                         <label>Jenis Mobil</label>
-                        <select class="form-control" name="jenis_mobil">
-                            <option value="1" {{$data->jenis_mobil == 1 ? 'selected' : ''}}>Avanza</option>
-                            <option value="2" {{$data->jenis_mobil == 2 ? 'selected' : ''}}>Hilux Single Cabin</option>
-                            <option value="3" {{$data->jenis_mobil == 3 ? 'selected' : ''}}>Isuzu NKR 55</option>
-                            <option value="4" {{$data->jenis_mobil == 4 ? 'selected' : ''}}>Innova</option>
-                            <option value="5" {{$data->jenis_mobil == 5 ? 'selected' : ''}}>Hilux Double Cabin</option>
+                        <select class="form-control" name="jenis_id">
+                            @foreach ($jenis as $data)
+                            <option value="{{$data->id}}">{{$data->nama}}</option>
+                            @endforeach
                         </select>
-                        @error('jenis_mobil') <span class="text-danger">{{ $message }}</span>@enderror
+                        @error('jenis_id') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
                         <label>Unit</label>
                         <select class="form-control" name="unit_id">
-                            @foreach ($unit as $data)    
+                            @foreach ($unit as $data)
                             <option value="{{$data->id}}">{{$data->nama}}</option>
                             @endforeach
                         </select>

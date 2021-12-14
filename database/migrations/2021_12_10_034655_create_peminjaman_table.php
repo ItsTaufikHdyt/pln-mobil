@@ -15,17 +15,20 @@ class CreatePeminjamanTable extends Migration
     {
         Schema::create('peminjaman', function (Blueprint $table) {
             $table->id();
-            $table->string('nip');
-            $table->string('nopol');
-            $table->integer('id_supir');
+            $table->integer('keperluan_id');
+            $table->string('nama');
             $table->string('bagian');
             $table->integer('jumlah_penumpang');
             $table->date('tgl_berangkat');
             $table->date('tgl_kembali');
-            $table->string('jenis_kendaraan');
+            $table->string('jenis_id');
             $table->string('tujuan');
             $table->string('keperluan');
+            $table->integer('mobil_id')->nullable();
+            $table->integer('supir_id')->nullable();
             $table->integer('status');
+            $table->integer('user_id');
+            $table->text('catatan')->nullable();
             $table->timestamps();
         });
     }

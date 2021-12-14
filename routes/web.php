@@ -19,6 +19,8 @@ Auth::routes();
 //================= login ============================
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('showLoginForm');
 Route::post('/login-proses', [App\Http\Controllers\Auth\LoginController::class, 'HandleLogin'])->name('login-proses');
+
+Route::group(['middleware' => 'admin', "prefix" => "admin"], function () {
 //================= admin ============================
 Route::get('/page-admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 //================= admin/user ============================
@@ -41,11 +43,23 @@ Route::get('/data-unit', [App\Http\Controllers\AdminController::class, 'unit'])-
 Route::post('/store-unit', [App\Http\Controllers\AdminController::class, 'storeUnit'])->name('admin.storeUnit');
 Route::put('/update-unit/{id}', [App\Http\Controllers\AdminController::class, 'updateUnit'])->name('admin.updateUnit');
 Route::delete('/delete-unit/{id}', [App\Http\Controllers\AdminController::class, 'destroyUnit'])->name('admin.deleteUnit');
+//================= admin/jenis ============================
+Route::get('/data-jenis', [App\Http\Controllers\AdminController::class, 'jenis'])->name('admin.jenis');
+Route::post('/store-jenis', [App\Http\Controllers\AdminController::class, 'storeJenis'])->name('admin.storeJenis');
+Route::put('/update-jenis/{id}', [App\Http\Controllers\AdminController::class, 'updateJenis'])->name('admin.updateJenis');
+Route::delete('/delete-jenis/{id}', [App\Http\Controllers\AdminController::class, 'destroyJenis'])->name('admin.deleteJenis');
 //================= admin/mobil ============================
 Route::get('/data-mobil', [App\Http\Controllers\AdminController::class, 'mobil'])->name('admin.mobil');
 Route::post('/store-mobil', [App\Http\Controllers\AdminController::class, 'storeMobil'])->name('admin.storeMobil');
 Route::put('/update-mobil/{id}', [App\Http\Controllers\AdminController::class, 'updateMobil'])->name('admin.updateMobil');
 Route::delete('/delete-mobil/{id}', [App\Http\Controllers\AdminController::class, 'destroyMobil'])->name('admin.deleteMobil');
+//================= user/peminjaman ============================
+Route::get('/peminjaman', [App\Http\Controllers\AdminController::class, 'peminjaman'])->name('admin.peminjaman');
+Route::put('/update-peminjaman/{id}', [App\Http\Controllers\AdminController::class, 'updatePeminjaman'])->name('admin.updatePeminjaman');
+Route::delete('/delete-peminjaman/{id}', [App\Http\Controllers\AdminController::class, 'destroyPeminjaman'])->name('admin.deletePeminjaman');
+});
+
+Route::group(['middleware' => 'user', "prefix" => "user"], function () {
 //================= user ============================
 Route::get('/page-user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 //================= user/profil ============================
@@ -53,3 +67,9 @@ Route::get('/data-profil', [App\Http\Controllers\UserController::class, 'profil'
 Route::post('/store-profil', [App\Http\Controllers\UserController::class, 'storeProfil'])->name('user.storeProfil');
 Route::put('/update-profil/{id}', [App\Http\Controllers\UserController::class, 'updateProfil'])->name('user.updateProfil');
 Route::delete('/delete-profil/{id}', [App\Http\Controllers\UserController::class, 'destroyProfil'])->name('user.deleteProfil');
+//================= user/peminjaman ============================
+Route::get('/peminjaman', [App\Http\Controllers\UserController::class, 'peminjaman'])->name('user.peminjaman');
+Route::post('/store-peminjaman', [App\Http\Controllers\UserController::class, 'storePeminjaman'])->name('user.storePeminjaman');
+Route::put('/update-peminjaman/{id}', [App\Http\Controllers\UserController::class, 'updatePeminjaman'])->name('user.updatePeminjaman');
+Route::delete('/delete-peminjaman/{id}', [App\Http\Controllers\UserController::class, 'destroyPeminjaman'])->name('user.deletePeminjaman');
+});
