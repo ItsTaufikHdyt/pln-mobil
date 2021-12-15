@@ -21,14 +21,18 @@ class CreatePeminjamanTable extends Migration
             $table->integer('jumlah_penumpang');
             $table->date('tgl_berangkat');
             $table->date('tgl_kembali');
-            $table->string('jenis_id');
+            $table->bigInteger('jenis_id')->unsigned();
             $table->string('tujuan');
             $table->string('keperluan');
-            $table->integer('mobil_id')->nullable();
-            $table->integer('supir_id')->nullable();
+            $table->bigInteger('mobil_id')->nullable()->unsigned();
+            $table->bigInteger('supir_id')->nullable()->unsigned();
             $table->integer('status');
-            $table->integer('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->text('catatan')->nullable();
+            $table->foreign('jenis_id')->references('id')->on('jenis_kendaraan'); 
+            $table->foreign('mobil_id')->references('id')->on('mobil'); 
+            $table->foreign('supir_id')->references('id')->on('supir'); 
+            $table->foreign('user_id')->references('id')->on('users'); 
             $table->timestamps();
         });
     }

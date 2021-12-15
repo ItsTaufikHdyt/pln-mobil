@@ -16,6 +16,7 @@ class CreateSupirTable extends Migration
         Schema::create('supir', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->integer('status')->default('1');
             $table->timestamps();
         });
     }

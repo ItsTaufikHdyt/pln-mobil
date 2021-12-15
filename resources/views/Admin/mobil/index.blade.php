@@ -20,6 +20,7 @@ Data Mobil
             <th scope="col">Nomor Polisi</th>
             <th scope="col">Jenis Mobil</th>
             <th scope="col">Unit</th>
+            <th scope="col">Status</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
@@ -32,10 +33,17 @@ Data Mobil
             <th scope="row">{{$no++}}</th>
             <th scope="row">{{$data->nopol}}</th>
             <th scope="row">
-            {{$data->jenis_id}}
+                {{$data->jenis_id}}
             </th>
             <th scope="row">
                 {{$data->unit_id}}
+            </th>
+            <th scope="row">
+                @if ($data->status == 0)
+                <span class="badge badge-danger">Tidak Aktif</span>
+                @elseif ($data->status == 1)
+                <span class="badge badge-success">Aktif</span>
+                @endif
             </th>
             <th scope="row">
                 <button data-toggle="modal" data-target="#updateMobilModal{{$data->id}}" type="button" class="btn btn-warning">Edit</button>

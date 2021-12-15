@@ -16,9 +16,11 @@ class CreateMobil extends Migration
         Schema::create('mobil', function (Blueprint $table) {
             $table->id();
             $table->string('nopol')->unique();
-            $table->integer('jenis_id');
-            $table->integer('unit_id');
-            $table->integer('status');
+            $table->bigInteger('jenis_id')->unsigned(); 
+            $table->bigInteger('unit_id')->unsigned(); 
+            $table->integer('status')->default('1');
+            $table->foreign('jenis_id')->references('id')->on('jenis_kendaraan'); 
+            $table->foreign('unit_id')->references('id')->on('unit'); 
             $table->timestamps();
         });
     }
