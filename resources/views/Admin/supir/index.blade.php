@@ -47,7 +47,7 @@ Data Supir
         </tr>
         @empty
         <tr>
-            <th colspan="3">
+            <th colspan="4">
                 <center>
                     Data Not Found
                 </center>

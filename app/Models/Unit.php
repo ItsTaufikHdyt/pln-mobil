@@ -11,4 +11,9 @@ class Unit extends Model
 
     protected $table = 'unit';
     protected $guarded = [];
+
+    public function mobil()
+    {
+        return $this->hasMany(Mobil::class,'id');
+    }
 }

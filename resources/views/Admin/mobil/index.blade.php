@@ -33,10 +33,10 @@ Data Mobil
             <th scope="row">{{$no++}}</th>
             <th scope="row">{{$data->nopol}}</th>
             <th scope="row">
-                {{$data->jenis_id}}
+                {{$data->jenis_kendaraan->nama}}
             </th>
             <th scope="row">
-                {{$data->unit_id}}
+                {{$data->unit->nama}}
             </th>
             <th scope="row">
                 @if ($data->status == 0)

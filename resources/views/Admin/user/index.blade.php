@@ -33,13 +33,13 @@ Data Pegawai
             <th scope="row">{{$data->nama}}</th>
             <th scope="row">{{$data->jabatan}}</th>
             <th scope="row">{{$data->bagian}}</th>
-            <th scope="row">{{$data->atasan_id}}</th>
-            <th scope="row">{{$data->atasan_id}}</th>
+            <th scope="row">{{$data->atasan->nip}}</th>
+            <th scope="row">{{$data->atasan->nama}}</th>
             <th scope="row">
                 @if ($data->role_id == 1)
-                <span class="badge badge-primary">Admin</span>
+                <span class="badge badge-primary">{{$data->role->nama}}</span>
                 @elseif ($data->role_id == 2)
-                <span class="badge badge-secondary">User</span>
+                <span class="badge badge-secondary">{{$data->role->nama}}</span>
                 @endif
             </th>
             <th scope="row">

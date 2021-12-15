@@ -31,9 +31,9 @@
                     </div>
                     <div class="form-group">
                         <label>Atasan</label>
-                        <select class="form-control" name="atasan">
-                            @foreach ($atasan as $data)    
-                            <option value="{{$data->id}}">{{$data->nama}}</option>
+                        <select class="form-control" name="atasan_id">
+                            @foreach ($atasan as $data1)    
+                            <option value="{{$data1->id}}">{{$data1->nama}}</option>
                             @endforeach
                         </select>
                         @error('atasan') <span class="text-danger">{{ $message }}</span>@enderror
@@ -47,8 +47,9 @@
                         @error('role_id') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
-                        <input name="password" class="form-control" type="password" value="{{$data->password}}" placeholder="Password">
+                    <label>Password</label>
+                        <input type="checkbox" name="centang" class="i-checks" onclick="var input = document.getElementById('pass{{$data->id}}'); if( this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"><br>
+                        <input type="password" name="password" id="pass{{$data->id}}" class="form-control" disabled="true" required>
                         @error('password') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>

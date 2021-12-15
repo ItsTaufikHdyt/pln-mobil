@@ -11,4 +11,9 @@ class Jenis_kendaraan extends Model
 
     protected $table = 'jenis_kendaraan';
     protected $guarded = [];
+
+    public function mobil()
+    {
+        return $this->hasMany(Mobil::class,'id');
+    }
 }

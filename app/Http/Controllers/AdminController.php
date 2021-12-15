@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Unit;
 use App\Models\Mobil;
 use App\Models\Peminjaman;
+use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     public function index()
@@ -42,16 +43,22 @@ class AdminController extends Controller
 
     public function updatePegawai(Request $request, $id)
     {
-        $pegawai = User::find($id);
-        $pegawai->update([
+        
+        $data = [
             'nip' => $request->nip,
             'nama' => $request->nama,
             'jabatan' => $request->jabatan,
             'bagian' => $request->bagian,
-            'password' => bcrypt($request->password),
-            'atasan' => $request->atasan,
+            'atasan_id' => $request->atasan_id,
             'role_id' => $request->role_id,
-        ]);
+        ];
+        if ($request->has('password')) {
+            $data['password'] = bcrypt($request->password);
+        }
+        $pegawai = DB::table('users')
+            ->where('id', $id)
+            ->update($data);
+
         return redirect()->route('admin.pegawai');
     }
 

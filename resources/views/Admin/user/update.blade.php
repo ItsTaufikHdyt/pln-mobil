@@ -9,7 +9,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                <div class="form-group">
+                    <div class="form-group">
                         <label>NIP</label>
                         <input name="nip" class="form-control" type="text" value="{{$data->nip}}" placeholder="NIP">
                         @error('nip') <span class="text-danger">{{ $message }}</span>@enderror
@@ -31,25 +31,26 @@
                     </div>
                     <div class="form-group">
                         <label>Atasan</label>
-                        <select class="form-control" name="atasan">
-                            @foreach ($atasan as $data)    
-                            <option value="{{$data->id}}">{{$data->nama}}</option>
+                        <select class="form-control" name="atasan_id">
+                            @foreach ($atasan as $data1)
+                            <option value="{{$data1->id}}">{{$data1->nama}}</option>
                             @endforeach
                         </select>
                         @error('atasan') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
-                        <label>Role</label>
-                        <select class="form-control" name="role_id">
-                            <option value="1" {{$data->role_id == 1 ? 'selected' : ''}}>Admin</option>
-                            <option value="2" {{$data->role_id == 2 ? 'selected' : ''}}>User</option>
-                        </select>
-                        @error('role_id') <span class="text-danger">{{ $message }}</span>@enderror
+                        <label>Password</label>
+                        <input type="checkbox" name="centang" class="i-checks" onclick="var input = document.getElementById('pass{{$data->id}}'); if( this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"><br>
+                        <input type="password" name="password" id="pass{{$data->id}}" class="form-control" disabled="true" required>
+                        @error('password') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
-                        <input name="password" class="form-control" type="password" value="{{$data->password}}" placeholder="Password">
-                        @error('password') <span class="text-danger">{{ $message }}</span>@enderror
+                        <label>Role</label>
+                        <select class="form-control" name="role_id">
+                            <option value="1" {{$data->role_id == '1' ? 'selected' : ''}}>Admin</option>
+                            <option value="2" {{$data->role_id == '2' ? 'selected' : ''}}>User</option>
+                        </select>
+                        @error('role_id') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="modal-footer">

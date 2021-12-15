@@ -85,8 +85,8 @@
                     <div class="form-group">
                         <label>Jenis Mobil</label>
                         <select class="form-control" name="jenis_id">
-                            @foreach ($jenis as $data)
-                            <option value="{{$data->id}}">{{$data->nama}}</option>
+                            @foreach ($jenis as $data1)
+                            <option value="{{$data1->id}}">{{$data1->nama}}</option>
                             @endforeach
                         </select>
                         @error('jenis_id') <span class="text-danger">{{ $message }}</span>@enderror
