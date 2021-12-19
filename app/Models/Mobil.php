@@ -21,4 +21,9 @@ class Mobil extends Model
     {
         return $this->belongsTo(Unit::class,'unit_id'); 
     }
+
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class,'id');
+    }
 }

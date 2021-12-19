@@ -72,4 +72,5 @@ Route::get('/peminjaman', [App\Http\Controllers\UserController::class, 'peminjam
 Route::post('/store-peminjaman', [App\Http\Controllers\UserController::class, 'storePeminjaman'])->name('user.storePeminjaman');
 Route::put('/update-peminjaman/{id}', [App\Http\Controllers\UserController::class, 'updatePeminjaman'])->name('user.updatePeminjaman');
 Route::delete('/delete-peminjaman/{id}', [App\Http\Controllers\UserController::class, 'destroyPeminjaman'])->name('user.deletePeminjaman');
+Route::get('/peminjaman/{id}', [App\Http\Controllers\UserController::class, 'printPeminjaman'])->name('user.printPeminjaman');
 });

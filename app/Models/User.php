@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Atasan::class,'atasan_id');
     }
+
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class,'id');
+    }
 }

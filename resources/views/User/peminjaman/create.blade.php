@@ -12,12 +12,12 @@
                     <div class="form-group">
                         <label class="weight-600">Keperluan</label>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio4" name="keperluan_id" value="1" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio4">Dinas</label>
+                            <input type="radio" id="keperluan1" name="keperluan_id" value="1" class="custom-control-input">
+                            <label class="custom-control-label" for="keperluan1">Dinas</label>
                         </div>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio5" name="keperluan_id" value="2" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio5">Non Dinas</label>
+                            <input type="radio" id="keperluan2" name="keperluan_id" value="2" class="custom-control-input">
+                            <label class="custom-control-label" for="keperluan2">Non Dinas</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -28,32 +28,32 @@
                     <div class="form-group">
                         <label class="weight-600">Bagian</label>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio4" name="bagian" value="1" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio4">REN</label>
+                            <input type="radio" id="bagian1" name="bagian" value="1" class="custom-control-input">
+                            <label class="custom-control-label" for="bagian1">REN</label>
                         </div>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio5" name="bagian" value="2" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio5">JAR</label>
+                            <input type="radio" id="bagian2" name="bagian" value="2" class="custom-control-input">
+                            <label class="custom-control-label" for="bagian2">JAR</label>
                         </div>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio4" name="bagian" value="3" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio4">TEL</label>
+                            <input type="radio" id="bagian3" name="bagian" value="3" class="custom-control-input">
+                            <label class="custom-control-label" for="bagian3">TEL</label>
                         </div>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio5" name="bagian" value="4" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio5">SAR</label>
+                            <input type="radio" id="bagian4" name="bagian" value="4" class="custom-control-input">
+                            <label class="custom-control-label" for="bagian4">SAR</label>
                         </div>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio5" name="bagian" value="5" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio5">KUM</label>
+                            <input type="radio" id="bagian5" name="bagian" value="5" class="custom-control-input">
+                            <label class="custom-control-label" for="bagian5">KUM</label>
                         </div>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio5" name="bagian" value="6" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio5">K3L</label>
+                            <input type="radio" id="bagian6" name="bagian" value="6" class="custom-control-input">
+                            <label class="custom-control-label" for="bagian6">K3L</label>
                         </div>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio5" name="bagian" value="7" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio5">DAN</label>
+                            <input type="radio" id="bagian7" name="bagian" value="7" class="custom-control-input">
+                            <label class="custom-control-label" for="bagian7">DAN</label>
                         </div>
                     </div>
                     <div class="form-group">

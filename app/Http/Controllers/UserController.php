@@ -12,6 +12,7 @@ use App\Models\Peminjaman;
 use App\Models\Jenis_kendaraan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class UserController extends Controller
 {
@@ -23,9 +24,9 @@ class UserController extends Controller
     //======================USER=====================
     public function profil()
     {
-        $pegawai = User::where('id','=', Auth::user()->id)->get();
+        $pegawai = User::where('id', '=', Auth::user()->id)->get();
         $atasan = Atasan::all();
-        return view('User.profil.index',compact('pegawai','atasan'));
+        return view('User.profil.index', compact('pegawai', 'atasan'));
     }
 
     public function storeProfil(Request $request)
@@ -72,9 +73,9 @@ class UserController extends Controller
 
     public function peminjaman()
     {
-        $peminjaman = Peminjaman::where('user_id','=', Auth::user()->id)->get();
+        $peminjaman = Peminjaman::where('user_id', '=', Auth::user()->id)->get();
         $jenis = Jenis_kendaraan::all();
-        return view('User.peminjaman.index',compact('peminjaman','jenis'));
+        return view('User.peminjaman.index', compact('peminjaman', 'jenis'));
     }
 
     public function storePeminjaman(Request $request)
@@ -96,7 +97,7 @@ class UserController extends Controller
         return redirect()->route('user.peminjaman');
     }
 
-    public function updatePeminjaman(Request $request,$id)
+    public function updatePeminjaman(Request $request, $id)
     {
         $peminjaman = Peminjaman::find($id);
         $peminjaman->update([
@@ -124,4 +125,10 @@ class UserController extends Controller
         return redirect()->route('user.peminjaman');
     }
 
+    public function printPeminjaman($id)
+    {
+        $peminjaman = peminjaman::find($id);
+        $pdf = PDF::loadview('PDF.peminjaman', ['peminjaman' => $peminjaman])->setPaper('A4', 'Landscape');
+        return $pdf->stream('peminajaman-mobil-dinas-pdf');
+    }
 }

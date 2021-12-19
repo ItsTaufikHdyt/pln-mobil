@@ -16,4 +16,9 @@ class Jenis_kendaraan extends Model
     {
         return $this->hasMany(Mobil::class,'id');
     }
+
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class,'id');
+    }
 }

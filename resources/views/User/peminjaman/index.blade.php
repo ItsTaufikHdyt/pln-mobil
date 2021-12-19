@@ -58,7 +58,8 @@ Peminjaman
                 @endif
             </th>
             <th scope="row">
-                <button class="btn btn-secondary">View</button>
+                <button  data-toggle="modal" data-target="#showPeminjamanModal{{$data->id}}" type="button" class="btn btn-secondary">View</button>
+                @include('User.peminjaman.show')
                 @if ($data->status !== 2 && $data->status !== 3)
                 <button data-toggle="modal" data-target="#updatePeminjamanModal{{$data->id}}" type="button" class="btn btn-warning">Edit</button>
                 @include('User.peminjaman.update')

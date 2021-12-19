@@ -33,8 +33,8 @@ class AdminController extends Controller
             'nama' => $request->nama,
             'jabatan' => $request->jabatan,
             'bagian' => $request->bagian,
-            'password' => bcrypt('plnbanjaramasin'),
-            'atasan' => $request->atasan,
+            'password' => bcrypt('plnbanjarmasin'),
+            'atasan_id' => $request->atasan_id,
             'role_id' => $request->role_id,
         ]);
 

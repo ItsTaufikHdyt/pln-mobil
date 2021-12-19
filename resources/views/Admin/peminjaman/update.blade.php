@@ -13,11 +13,11 @@
                     <div class="form-group">
                         <label class="weight-600">Keperluan</label>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio4" name="keperluan_id" value="1" class="custom-control-input"  {{$data->keperluan_id == 1 ? 'checked' : ''}} disabled>
+                            <input type="radio" id="customRadio4" name="keperluan_id" value="1" class="custom-control-input" {{$data->keperluan_id == 1 ? 'checked' : ''}} disabled>
                             <label class="custom-control-label" for="customRadio4">Dinas</label>
                         </div>
                         <div class="custom-control custom-radio mb-5">
-                            <input type="radio" id="customRadio5" name="keperluan_id" value="2" class="custom-control-input"  {{$data->keperluan_id == 2 ? 'checked' : ''}} disabled>
+                            <input type="radio" id="customRadio5" name="keperluan_id" value="2" class="custom-control-input" {{$data->keperluan_id == 2 ? 'checked' : ''}} disabled>
                             <label class="custom-control-label" for="customRadio5">Non Dinas</label>
                         </div>
                     </div>
@@ -85,8 +85,8 @@
                     <div class="form-group">
                         <label>Jenis Mobil</label>
                         <select class="form-control" name="jenis_id" disabled>
-                            @foreach ($jenis as $data)
-                            <option value="{{$data->id}}">{{$data->nama}}</option>
+                            @foreach ($jenis as $data0)
+                            <option value="{{$data0->id}}">{{$data0->nama}}</option>
                             @endforeach
                         </select>
                         @error('jenis_id') <span class="text-danger">{{ $message }}</span>@enderror
@@ -94,9 +94,9 @@
                     <div class="form-group">
                         <label>Mobil</label>
                         <select class="form-control" name="mobil_id">
-                            @foreach ($mobil as $data)
+                            @foreach ($mobil as $data1)
                             <option value="">Ditolak</option>
-                            <option value="{{$data->id}}">{{$data->nopol}}</option>
+                            <option value="{{$data1->id}}">{{$data1->nopol}}</option>
                             @endforeach
                         </select>
                         @error('mobil_id') <span class="text-danger">{{ $message }}</span>@enderror
@@ -104,9 +104,9 @@
                     <div class="form-group">
                         <label>Driver</label>
                         <select class="form-control" name="supir_id">
-                            @foreach ($supir as $data)
+                            @foreach ($supir as $data2)
                             <option value="">Ditolak</option>
-                            <option value="{{$data->id}}">{{$data->nama}}</option>
+                            <option value="{{$data2->id}}">{{$data2->nama}}</option>
                             @endforeach
                         </select>
                         @error('supir_id') <span class="text-danger">{{ $message }}</span>@enderror
@@ -114,10 +114,10 @@
                     <div class="form-group">
                         <label>Status</label>
                         <select class="form-control" name="status">
-                            <option value="0">Ditolak</option>
-                            <option value="1">Diproses</option>
-                            <option value="2">Diterima</option>
-                            <option value="3">Selesai</option>
+                            <option value="0" {{$data->status == 0 ? 'selected' : ''}}>Ditolak</option>
+                            <option value="1" {{$data->status == 1 ? 'selected' : ''}}>Diproses</option>
+                            <option value="2" {{$data->status == 2 ? 'selected' : ''}}>Diterima</option>
+                            <option value="3" {{$data->status == 3 ? 'selected' : ''}}>Selesai</option>
                         </select>
                         @error('status') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
