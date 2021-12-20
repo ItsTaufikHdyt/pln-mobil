@@ -125,6 +125,25 @@ class UserController extends Controller
         return redirect()->route('user.peminjaman');
     }
 
+    public function selesaiPeminjaman($id)
+    {
+        $peminjaman = Peminjaman::find($id);
+        $peminjaman->update([
+            'status' => 3
+        ]);
+        $supir = Supir::find($peminjaman->supir_id);
+        $supir->update([
+            'status' => 1
+        ]);
+
+        $mobil = Mobil::find($peminjaman->mobil_id);
+        $mobil->update([
+            'status' => 1
+        ]);
+
+        return redirect()->route('user.peminjaman');
+    }
+
     public function printPeminjaman($id)
     {
         $peminjaman = peminjaman::find($id);

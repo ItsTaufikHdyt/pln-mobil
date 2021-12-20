@@ -64,12 +64,12 @@
                     </div>
                     <div class="form-group">
                         <label>Tanggal Berangkat</label>
-                        <input name="tgl_berangkat" value="{{$data->tgl_berangkat}}" class="form-control" type="date" placeholder="Tanggal Berangkat">
+                        <input name="tgl_berangkat" value="{{$data->tgl_berangkat}}" class="form-control" type="datetime-local" placeholder="Tanggal Berangkat">
                         @error('tgl_berangkat') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">
                         <label>Tanggal Kembali</label>
-                        <input name="tgl_kembali" value="{{$data->tgl_kembali}}" class="form-control" type="date" placeholder="Tanggal Kembali">
+                        <input name="tgl_kembali" value="{{$data->tgl_kembali}}" class="form-control" type="datetime-local" placeholder="Tanggal Kembali">
                         @error('tgl_kembali') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">

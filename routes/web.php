@@ -57,6 +57,8 @@ Route::delete('/delete-mobil/{id}', [App\Http\Controllers\AdminController::class
 Route::get('/peminjaman', [App\Http\Controllers\AdminController::class, 'peminjaman'])->name('admin.peminjaman');
 Route::put('/update-peminjaman/{id}', [App\Http\Controllers\AdminController::class, 'updatePeminjaman'])->name('admin.updatePeminjaman');
 Route::delete('/delete-peminjaman/{id}', [App\Http\Controllers\AdminController::class, 'destroyPeminjaman'])->name('admin.deletePeminjaman');
+
+Route::get('/peminjaman/{id}', [App\Http\Controllers\AdminController::class, 'printPeminjaman'])->name('admin.printPeminjaman');
 });
 
 Route::group(['middleware' => 'user', "prefix" => "user"], function () {
@@ -71,6 +73,8 @@ Route::delete('/delete-profil/{id}', [App\Http\Controllers\UserController::class
 Route::get('/peminjaman', [App\Http\Controllers\UserController::class, 'peminjaman'])->name('user.peminjaman');
 Route::post('/store-peminjaman', [App\Http\Controllers\UserController::class, 'storePeminjaman'])->name('user.storePeminjaman');
 Route::put('/update-peminjaman/{id}', [App\Http\Controllers\UserController::class, 'updatePeminjaman'])->name('user.updatePeminjaman');
+Route::put('/selesai-peminjaman/{id}', [App\Http\Controllers\UserController::class, 'selesaiPeminjaman'])->name('user.selesaiPeminjaman');
 Route::delete('/delete-peminjaman/{id}', [App\Http\Controllers\UserController::class, 'destroyPeminjaman'])->name('user.deletePeminjaman');
+
 Route::get('/peminjaman/{id}', [App\Http\Controllers\UserController::class, 'printPeminjaman'])->name('user.printPeminjaman');
 });

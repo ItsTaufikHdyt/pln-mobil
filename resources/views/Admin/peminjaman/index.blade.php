@@ -58,7 +58,7 @@ Peminjaman
             </th>
             <th scope="row">
                 @if ($data->status == 2 || $data->status == 3) 
-                <button class="btn btn-primary">Print</button>
+                <a class="btn btn-primary" target="_blank" href="{{route('admin.printPeminjaman',$data->id)}}">Print</a>
                 @endif
                 <button data-toggle="modal" data-target="#updatePeminjamanModal{{$data->id}}" type="button" class="btn btn-warning">Edit</button>
                 @include('Admin.peminjaman.update')

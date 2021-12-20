@@ -94,8 +94,8 @@
                     <div class="form-group">
                         <label>Mobil</label>
                         <select class="form-control" name="mobil_id">
-                            @foreach ($mobil as $data1)
                             <option value="">Ditolak</option>
+                            @foreach ($mobil as $data1)
                             <option value="{{$data1->id}}">{{$data1->nopol}}</option>
                             @endforeach
                         </select>
@@ -104,8 +104,8 @@
                     <div class="form-group">
                         <label>Driver</label>
                         <select class="form-control" name="supir_id">
-                            @foreach ($supir as $data2)
                             <option value="">Ditolak</option>
+                            @foreach ($supir as $data2)
                             <option value="{{$data2->id}}">{{$data2->nama}}</option>
                             @endforeach
                         </select>

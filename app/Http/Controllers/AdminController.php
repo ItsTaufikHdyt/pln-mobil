@@ -11,6 +11,7 @@ use App\Models\Unit;
 use App\Models\Mobil;
 use App\Models\Peminjaman;
 use Illuminate\Support\Facades\DB;
+use PDF;
 class AdminController extends Controller
 {
     public function index()
@@ -248,8 +249,8 @@ class AdminController extends Controller
     {
         $peminjaman = Peminjaman::all();
         $jenis = Jenis_kendaraan::all();
-        $mobil = Mobil::all();
-        $supir = Supir::all();
+        $mobil = Mobil::where('status','=',1)->get();
+        $supir = Supir::where('status','=',1)->get();
         return view('Admin.peminjaman.index',compact('peminjaman','jenis','mobil','supir'));
     }
 
@@ -263,6 +264,17 @@ class AdminController extends Controller
             'catatan' => $request->catatan
         ]);
 
+        $supir = Supir::find($request->supir_id);
+        $supir->update([
+            'status' => 0
+        ]);
+
+        $mobil = Mobil::find($request->mobil_id);
+        $mobil->update([
+            'status' => 0
+        ]);
+
+
         return redirect()->route('admin.peminjaman');
     }
 
@@ -272,5 +284,12 @@ class AdminController extends Controller
         $peminjaman->delete();
 
         return redirect()->route('admin.peminjaman');
+    }
+
+    public function printPeminjaman($id)
+    {
+        $peminjaman = peminjaman::find($id);
+        $pdf = PDF::loadview('PDF.peminjaman', ['peminjaman' => $peminjaman])->setPaper('A4', 'Landscape');
+        return $pdf->stream('peminajaman-mobil-dinas-pdf');
     }
 }

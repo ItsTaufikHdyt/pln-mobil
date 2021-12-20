@@ -58,7 +58,7 @@ Peminjaman
                 @endif
             </th>
             <th scope="row">
-                <button  data-toggle="modal" data-target="#showPeminjamanModal{{$data->id}}" type="button" class="btn btn-secondary">View</button>
+                <button data-toggle="modal" data-target="#showPeminjamanModal{{$data->id}}" type="button" class="btn btn-secondary">View</button>
                 @include('User.peminjaman.show')
                 @if ($data->status !== 2 && $data->status !== 3)
                 <button data-toggle="modal" data-target="#updatePeminjamanModal{{$data->id}}" type="button" class="btn btn-warning">Edit</button>
@@ -67,7 +67,8 @@ Peminjaman
                 <button data-toggle="modal" data-target="#confirmationModal{{$data->id}}" type="button" class="btn btn-danger">Delete</button>
                 @include('User.peminjaman.delete-confirmation')
                 @if ($data->status == 2)
-                <button class="btn btn-primary">Selesai</button>
+                <button data-toggle="modal" data-target="#doneConfirmationModal{{$data->id}}" type="button" class="btn btn-primary">Selesai</button>
+                @include('User.peminjaman.done-confirmation')
                 @endif
             </th>
         </tr>
